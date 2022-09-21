@@ -1,6 +1,6 @@
 const  mongoose = require('mongoose')
 
-const Diner = new mongoose.Schema({
+const DinerSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
@@ -9,8 +9,17 @@ const Diner = new mongoose.Schema({
         type: String,
         required: true
     },
-    avatar: {
-        type: String
+    latitude: {
+        type: String,
+        required: true
+    },
+    longitude:{
+        type: String,
+        required: true
+    },
+    user:{
+        type: String,
+        required: true
     },
     date: {
         type: Date,
@@ -18,4 +27,4 @@ const Diner = new mongoose.Schema({
     }
 })
 
-module.exports = User = mongoose.model('user', UserSchema)
+module.exports = Diner = mongoose.model('diner', DinerSchema)

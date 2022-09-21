@@ -9,12 +9,17 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    password: {
+    Date_Birth: {
+        type: date,
+        required: true
+    },
+    DNI: {
         type: String,
         required: true
     },
-    avatar: {
-        type: String
+    password: {
+        type: String,
+        required: true
     },
     type_User: {
        type: String,

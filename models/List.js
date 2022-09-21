@@ -1,24 +1,17 @@
 const  mongoose = require('mongoose')
 
-const UserSchema = new mongoose.Schema({
-    userName: {
+const ListSchema = new mongoose.Schema({
+    nameDinner: {
         type:String,
         required: true
     },
-    name: {
-        type: String,
+    week: {
+        type: Array,
         required: true
     },
-    password: {
+    user: {
         type: String,
         required: true
-    },
-    avatar: {
-        type: String
-    },
-    type_User: {
-       type: String,
-       required: true 
     },
     date: {
         type: Date,
@@ -26,4 +19,4 @@ const UserSchema = new mongoose.Schema({
     }
 })
 
-module.exports = User = mongoose.model('user', UserSchema)
+module.exports = List = mongoose.model('list', ListSchema)
