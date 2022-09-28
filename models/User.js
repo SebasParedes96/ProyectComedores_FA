@@ -9,10 +9,6 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    Date_Birth: {
-        type: date,
-        required: true
-    },
     DNI: {
         type: String,
         required: true

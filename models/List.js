@@ -1,14 +1,30 @@
-const  mongoose = require('mongoose')
+const mongoose = require('mongoose')
 
 const ListSchema = new mongoose.Schema({
     nameDinner: {
-        type:String,
+        type: String,
         required: true
     },
-    week: {
-        type: Array,
-        required: true
-    },
+    week: [
+        {
+            day: {
+                type: String,
+                required: true
+            }, list: [{
+                amount: {
+                    type: Int,
+                    required: true
+                },
+                name: {
+                    type: String,
+                    required: true
+                },
+                measure: {
+                    type: String,
+                    required: ture
+                }
+            },]
+        }],
     user: {
         type: String,
         required: true

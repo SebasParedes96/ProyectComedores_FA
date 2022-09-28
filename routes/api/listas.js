@@ -8,7 +8,7 @@ const { cookie } = require('request')
 
 
 //@route POST api/posts
-//desc: create post
+//desc: create list
 //@private
 router.post('/', [ auth, [
     check('text','text is required')

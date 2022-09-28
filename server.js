@@ -9,8 +9,8 @@ app.use(cors())
 
 const usersRoutes = require('./routes/api/users')
 const authRoutes = require('./routes/api/auth')
-const profileRoutes = require('./routes/api/profile')
-const postsRoutes = require('./routes/api/posts')
+const listsRoutes = require('./routes/api/lists')
+const dinersRoutes = require('./routes/api/diners')
 
 const auth = require('./middlewares/auth')
 
@@ -27,9 +27,9 @@ app.get('/test', (req, res) => res.send('BEnd api rest activo') )
 //routes
 
 app.use('/api/users', usersRoutes)
-app.use('/api/posts', postsRoutes)
+app.use('/api/diners', dinersRoutes)
 app.use('/api/auth',  authRoutes)
-app.use('/api/profile', profileRoutes)
+app.use('/api/lists', listsRoutes)
 
 app.listen(PORT , () => {
    console.log(`servidor iniciado en el puerto: ${PORT}`)

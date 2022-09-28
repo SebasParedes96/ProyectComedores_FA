@@ -18,13 +18,18 @@ const DinerSchema = new mongoose.Schema({
         required: true
     },
     user:{
-        type: String,
+        type: Int,
         required: true
     },
     date: {
         type: Date,
         default: Date.now
+    },
+    leavingDate: {
+        type: Date,
+        default: null
     }
+
 })
 
 module.exports = Diner = mongoose.model('diner', DinerSchema)
