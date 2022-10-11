@@ -18,7 +18,7 @@ const DinerSchema = new mongoose.Schema({
         required: true
     },
     user:{
-        type: Int,
+        type: Number,
         required: true
     },
     date: {

@@ -2,12 +2,14 @@ const jwt = require('jsonwebtoken')
 const config = require('config')
 
 module.exports = function(req, res, next)  {
-    //get token f. header
+/*     //get token f. header
     const token = req.header('x-auth-token')
     //check token
     if(!token){
         return res.status(401).json({msg: 'no token, unauthorized' })
     }
+
+    // realizar una consulta para comprorbar si el id del token existe en nuestra db de usuarios
 
     try {
         const decoded = jwt.verify(token, config.get('jwtSecret'))
@@ -22,6 +24,8 @@ module.exports = function(req, res, next)  {
     } catch (error) {
         res.status(401).json({msg: 'unvalid token'})
     }
+ */
 
+    next()
 
 }

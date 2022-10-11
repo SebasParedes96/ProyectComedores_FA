@@ -8,6 +8,10 @@ const ProductSchema = new mongoose.Schema({
     measure: {
         type: String,
         required:ture
+    },
+    leavingDate: {
+        type: Date,
+        default: null
     }
 })
 
