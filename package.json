@@ -1,7 +1,7 @@
 {
-  "name": "ipfdevs",
+  "name": "SGFA",
   "version": "1.0.0",
-  "description": "res social para devs del ipf",
+  "description": "Sistema de gestion de comedores",
   "main": "server.js",
   "scripts": {
     "start": "node server",
@@ -9,7 +9,7 @@
     "client": "npm run dev --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
-  "author": "Dario Benitez",
+  "author": "Paredes Pablo Sebastian",
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",

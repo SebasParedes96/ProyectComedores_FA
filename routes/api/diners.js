@@ -17,7 +17,7 @@ router.post('/', [ auth, [
     const errors = validationResult(req)
     
     if(!errors.isEmpty()){
-        return res.status(400).json({errors: errors.array})
+        return res.status(400).json({errors: errors.array()})
     }
 
     try {
@@ -70,7 +70,6 @@ router.get('/', auth, async (req, res) => {
  
 router.get('/:id', auth ,async (req, res) => {
     try {
-        
         const diner = await Diner.findById(req.params.id)
         
         if(!diner) return res.status(404).json({msg: 'El comedor no existe'}) 
@@ -95,11 +94,6 @@ router.get('/:id', auth ,async (req, res) => {
  
 router.delete('/:id', auth, async (req, res) => {
     try {
-        
-        //check user
-        if(diner.user.toString() !== req.user.id){
-            return res.status(401).json({msg: 'Usuario no autorizado'})
-        }  
 
         const diner = await Diner.findByIdAndUpdate(req.params.id,{leavingDate: new Date()})
 
@@ -129,7 +123,7 @@ router.put('/:id', [ auth, [
     const errors = validationResult(req)
     
     if(!errors.isEmpty()){
-        return res.status(400).json({errors: errors.array})
+        return res.status(400).json({errors: errors.array()})
     }
 
     try {

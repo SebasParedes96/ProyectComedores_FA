@@ -7,7 +7,7 @@ const ProductSchema = new mongoose.Schema({
     },
     measure: {
         type: String,
-        required:ture
+        required:true
     },
     leavingDate: {
         type: Date,

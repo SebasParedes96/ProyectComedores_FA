@@ -26,7 +26,7 @@ const ListSchema = new mongoose.Schema({
             },]
         }],
     user: {
-        type: Number,
+        type: String,
         required: true
     },
     date: {

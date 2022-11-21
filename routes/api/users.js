@@ -22,9 +22,9 @@ async (req, res) => {
     
     console.log(req.body)
     
-    const {name, email, password } = req.body
+    const {name, email, password , DNI , type_User} = req.body
 
-    console.log('incoming data=>', name, email, password)
+    console.log('incoming data=>', name, email, password, DNI , type_User )
 
     const errors = validationResult(req)
 
@@ -52,7 +52,9 @@ async (req, res) => {
             name, 
             email,
             avatar,
-            password
+            password, 
+            DNI , 
+            type_User
         })
 
          //encrypt passw

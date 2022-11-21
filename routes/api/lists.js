@@ -3,7 +3,6 @@ const router = express.Router()
 const { check, validationResult } = require('express-validator')
 const auth = require('../../middlewares/auth')
 const List = require('../../models/List')
-const { cookie } = require('request')
 
 
 //@route POST api/lists
@@ -20,13 +19,14 @@ router.post('/', [ auth, [
     const errors = validationResult(req)
     
     if(!errors.isEmpty()){
-        return res.status(400).json({errors: errors.array})
+        return res.status(400).json({errors: errors.array()})
     }
+    
 
     try {
         const newList = req.body
 
-        const List = new List(newList)
+        const list = new List(newList)
 
         await list.save()
 
@@ -123,16 +123,15 @@ router.put('/:id', [ auth, [
     check('weekNumber','Number of week is required').not().isEmpty(),
     check('week','Lists is required').isArray({ min: 1 })
 ]], async (req, res) => {
-    const list = req.body
-    const errors = validationResult(req)
-    
-    if(!errors.isEmpty()){
-        return res.status(400).json({errors: errors.array})
+    const { nameDiner, weekNumber, user, week } = req.body
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() });
     }
 
     try {
 
-        await List.findByIdAndUpdate(req.params.id, list )
+        await List.findByIdAndUpdate(req.params.id, { nameDiner, weekNumber, user, week } )
 
 
         return res.json({msg: 'la informacion de la lista fue modificada.'})
